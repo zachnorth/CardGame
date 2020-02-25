@@ -194,6 +194,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101177264}
   m_CullTransparentMesh: 0
+--- !u!1 &124514730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124514731}
+  m_Layer: 0
+  m_Name: PlayerMaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &124514731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124514730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 663.03876, y: 206.76588, z: -747.37134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228658130
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab_Ace_Of_Clubs: {fileID: 0}
+  prefabPlayer: {fileID: 0}
 --- !u!212 &321800491
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -717,7 +748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 586, y: -35}
+  m_AnchoredPosition: {x: 133, y: -38}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577532045
@@ -853,7 +884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1182, y: -227}
+  m_AnchoredPosition: {x: -337, y: -126}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705961053
@@ -932,7 +963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 621.6, y: -222}
+  m_AnchoredPosition: {x: 240, y: -160}
   m_SizeDelta: {x: 88.8, y: 78.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899715016
@@ -1676,6 +1707,7 @@ GameObject:
   - component: {fileID: 1805644972}
   - component: {fileID: 1805644976}
   - component: {fileID: 1805644977}
+  - component: {fileID: 1805644978}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1778,6 +1810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab_Ace_Of_Clubs: {fileID: 401383431310680761, guid: 68f579ff4dc71ef4ea1c55acfd64822a,
     type: 3}
+  prefabPlayer: {fileID: 4716826970071628006, guid: 91dd0ed20a01315408386dbba68ce30e,
+    type: 3}
 --- !u!114 &1805644977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,6 +1822,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b485ed846e0ade24e88461e013f2d245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1805644978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805644971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313bca71d5b798341b3ef7c299e7554c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2024149273
