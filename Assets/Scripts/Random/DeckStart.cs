@@ -13,31 +13,31 @@ public class DeckStart : MonoBehaviour
     GameObject prefabPlayer;
 
     //Variables that help create the deck
-    Tuple<string, string>[] Deck = new Tuple<string, string>[52];
-    string[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
-    string[] values = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+    //Tuple<string, string>[] Deck = new Tuple<string, string>[52];
+    //string[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
+    //string[] values = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
 
     //all Cards
-    /*string[] Deck = { "Ace of Hearts", "Two of Hearts", "Three of Hearts", "Four of Hearts", "Five of Hearts", "Six of Hearts", "Seven of Hearts",
+    string[] Deck = { "Ace of Hearts", "Two of Hearts", "Three of Hearts", "Four of Hearts", "Five of Hearts", "Six of Hearts", "Seven of Hearts",
         "Eight of Hearts", "Nine of Hearts", "Ten of Hearts", "Jack of Hearts", "Queen of Hearts", "King of Hearts",
     "Ace of Diamonds", "Two of Diamonds", "Three of Diamonds", "Four of Diamonds", "Five of Diamonds", "Six of Diamonds", "Seven of Diamonds",
         "Eight of Diamonds", "Nine of Diamonds", "Ten of Diamonds", "Jack of Diamonds", "Queen of Diamonds", "King of Diamonds",
-    "Ace Of Spades", "Two Of Spades", "Three Of Spades", "Four Of Spades", "Five Of Spades", "Six Of Spades", "Seven Of Spades", "Eight Of Spades",
-        "Nine Of Spades", "Ten Of Spades", "Jack Of Spades", "Queen Of Spades", "King Of Spades",
+    "Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades", "Five of Spades", "Six of Spades", "Seven of Spades", "Eight of Spades",
+        "Nine of Spades", "Ten of Spades", "Jack of Spades", "Queen of Spades", "King of Spades",
     "Ace of Clubs", "Two of Clubs", "Three of Clubs", "Four of Clubs", "Five of Clubs", "Six of Clubs", "Seven of Clubs", "Eight of Clubs", "Nine of Clubs",
         "Ten of Clubs", "Jack of Clubs", "Queen of Clubs", "King of Clubs"};
-        */
+        
 
 
     int suit_thelper = 0;
 
 
     //Variables that help deal hands to players
-    Tuple<string, string>[] kitty = new Tuple<string, string>[52];
+    string[] kitty = new string[52];
     int number_of_cards_in_kitty = 0;
 
     //GameObject[] Players = new GameObject[Globals.number_of_players];
-    int counter = 0;
+    //int counter = 0;
 
     #endregion
 
@@ -57,7 +57,7 @@ public class DeckStart : MonoBehaviour
 
     public void StartGame()
     {
-        MakeDeck();
+        //MakeDeck();
         Deck = Shuffle(Deck);
 
         //Tuple<string, string>[,] all_hands = Hands(Globals.number_of_players, Deck);
@@ -102,8 +102,7 @@ public class DeckStart : MonoBehaviour
 
                 for (int i = 0; i < Globals.number_of_players; i++)
                 {
-                    MakePlayer(Globals.four_player[counter], Globals.four_player[counter + 1]);
-                    counter += 2;
+                    MakePlayer(Globals.Locations[i]);
                 }
                 break;
             case 5:
@@ -122,12 +121,13 @@ public class DeckStart : MonoBehaviour
                 Debug.Log("How many players ya idiot??");
                 break;
         }
-
-        GameObject NewCard = Instantiate(prefab_Ace_Of_Clubs, Vector3.zero, Quaternion.identity);
     }
 
     #region Methods
+
+    
     #region MakeDeck
+    /*
     public Tuple<string, string>[] MakeDeck()
     {
         for (int i = 0; i < 52; i++)
@@ -141,46 +141,39 @@ public class DeckStart : MonoBehaviour
         }
         return Deck;
     }
+    */
     #endregion
 
     #region Player Hands
     //Method that deals hands to player
-    public Tuple<string, string>[,] Hands(int number_of_players, Tuple<string, string>[] Deck)
+    public string[,] Hands(int number_of_players, string[] Deck)
     {
         //Which player is being dealt to
         int deal_to_player = 0;
         int player_card_number = 0;
 
-        Tuple<string, string>[,] current_hands = new Tuple<string, string>[number_of_players, (int)Math.Floor((double)(52/number_of_players))];
+        string[,] current_hands = new string[number_of_players, (int)Math.Floor((double)(52/number_of_players))];
 
         int number_of_cards_per_hand = (int)Math.Floor((double)(52 / number_of_players));
         int number_of_cards = 52 - (52 - (number_of_cards_per_hand * number_of_players));
 
-        //Un-comment this line to print number of cards in each players hand
-        //Debug.Log("# Cards: " + number_of_cards);
-        
-
-
         for (int i = 0; i < number_of_cards; i++)
         {
-            deal_to_player = deal_to_player % number_of_players;
-            current_hands[deal_to_player, player_card_number] = Deck[i];
-            deal_to_player++;
-
-            if(i % number_of_players == 0 && i != 0)
+            if (i % number_of_players == 0 && i != 0)
             {
                 player_card_number++;
             }
+            deal_to_player = deal_to_player % number_of_players;
+            current_hands[deal_to_player, player_card_number] = Deck[i];
+            deal_to_player++;
         }
-
-
+        
         for(int i = number_of_cards; i < 52; i++)
         {
             kitty[i] = Deck[i];
             number_of_cards_in_kitty++;
         }
-
-
+        
         return current_hands;
     }
     #endregion
@@ -188,7 +181,7 @@ public class DeckStart : MonoBehaviour
 
     #region Shuffle
     //Shuffles the deck
-    public Tuple<string, string>[] Shuffle(Tuple<string, string>[] Deck)
+    public string[] Shuffle(string[] Deck)
     {
         System.Random rnd = new System.Random();
         for(int i = 0; i < 52; i++)
@@ -196,7 +189,7 @@ public class DeckStart : MonoBehaviour
             int ii = rnd.Next(0, 51);
             if (i != ii)
             {
-                Tuple<string, string> temp = Deck[i];
+                string temp = Deck[i];
                 Deck[i] = Deck[ii];
                 Deck[ii] = temp;
             }
@@ -207,11 +200,10 @@ public class DeckStart : MonoBehaviour
     #endregion
 
     #region Instantiate Players
-    public void MakePlayer(float x, float y)
+    public void MakePlayer(Vector3 location)
     {
-        GameObject temp = Instantiate(prefabPlayer, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
-        
-        
+        GameObject temp = Instantiate(prefabPlayer, location, Quaternion.identity) as GameObject;
+        //Debug.Log(location);
     }
     #endregion
 

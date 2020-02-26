@@ -15,5 +15,6 @@ public class GameInitializer : MonoBehaviour
         // initialize screen utils
         //AudioManager.Play(AudioClipName.BallSpawned);
         ScreenUtils.Initialize();
+        Globals.Initialize();
     }
 }
