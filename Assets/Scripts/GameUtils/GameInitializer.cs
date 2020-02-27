@@ -17,4 +17,9 @@ public class GameInitializer : MonoBehaviour
         ScreenUtils.Initialize();
         Globals.Initialize();
     }
+
+    public void NumberOfPlayers(int i)
+    {
+        Globals.Number_Of_Players = i;
+    }
 }

@@ -100,10 +100,12 @@ public class DeckStart : MonoBehaviour
             case 4:
                 Debug.Log("4 Player Game");
 
+                /*
                 for (int i = 0; i < Globals.number_of_players; i++)
                 {
                     MakePlayer(Globals.Locations[i]);
                 }
+                */
                 break;
             case 5:
                 Debug.Log("5 Player Game");

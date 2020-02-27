@@ -18,6 +18,8 @@ public static class Globals
 
     public static int number_of_players = 4;
 
+    public static int number_of_cards_per_hand = 13;
+
     static Vector3[] locations = new Vector3[number_of_players];
 
     //public static float[] four_player = { 0, ScreenBottom, ScreenLeft, 0, ScreenRight, 0, 0, ScreenTop };
@@ -78,12 +80,18 @@ public static class Globals
         get { return locations; }
     }
 
+    public static int Number_Of_Players
+    {
+        get { return number_of_players; }
+        set { number_of_players = value; }
+    }
+
     public static void Initialize()
     {
-        screenLeft = (ScreenUtils.ScreenLeft - (float)(0.1 * ScreenUtils.ScreenLeft));
-        screenRight = (ScreenUtils.ScreenRight - (float)(0.1 * ScreenUtils.ScreenRight));
-        screenBottom = (ScreenUtils.ScreenBottom - (float)(0.1 * ScreenUtils.ScreenBottom));
-        screenTop = (ScreenUtils.ScreenTop - (float)(0.1 * ScreenUtils.ScreenTop));
+        screenLeft = (ScreenUtils.ScreenLeft - (float)(0.2 * ScreenUtils.ScreenLeft));
+        screenRight = (ScreenUtils.ScreenRight - (float)(0.2 * ScreenUtils.ScreenRight));
+        screenBottom = (ScreenUtils.ScreenBottom - (float)(0.2 * ScreenUtils.ScreenBottom));
+        screenTop = (ScreenUtils.ScreenTop - (float)(0.2 * ScreenUtils.ScreenTop));
         switch (number_of_players)
         {
             case 1:
@@ -95,8 +103,8 @@ public static class Globals
             case 4:
                 locations[0] = new Vector3(0, ScreenBottom, 0);
                 locations[1] = new Vector3(ScreenLeft, 0, 0);
-                locations[2] = new Vector3(ScreenRight, 0, 0);
-                locations[3] = new Vector3(0, ScreenTop, 0);
+                locations[2] = new Vector3(0, ScreenTop, 0);
+                locations[3] = new Vector3(ScreenRight, 0, 0);
                 break;
             case 5:
                 break;
